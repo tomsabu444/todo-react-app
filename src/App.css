@@ -1,0 +1,263 @@
+*{
+  font-family: cursive;
+}
+
+body{
+  background-image: url(./assets/wavey-fingerprint.svg);
+  color: white;
+  overflow: hidden;
+}
+
+h1{
+  text-align: center;
+}
+
+
+.todo-wrapper{
+  
+  background-color: #353434;
+  padding: 2%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 7px rgb(26, 25, 25);
+  border-radius: 20px;
+}
+
+.todo-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(77, 77, 77);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  
+}
+
+.todo-input-item{
+  margin-right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+}
+
+.todo-input-item label{
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.todo-input-item input {
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  width: 250px;
+}
+
+input::placeholder {
+  font-size: 0.9em;
+}
+
+.todo-input-item input:focus{
+  outline: 2px solid rgb(0, 230, 122);
+}
+
+
+
+
+.primary-btn{
+  background-color: rgb(0, 230, 122);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-top: 25px;
+  padding: 10px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.primary-btn:hover{
+  background-color: rgb(4, 192, 104);
+}
+
+.btn-area{
+  margin-bottom: 10px;
+}
+
+
+.secondaryBtn{
+  background-color: rgb(92, 92, 92);
+  color: white;
+  border-radius: 0px;
+  border: none;
+  padding: 10px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 0px 5px;
+}
+
+.btn-area .active{
+  background-color: rgb(4, 192, 104);
+}
+
+
+
+.todo-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #414040;
+  padding: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgb(39, 38, 38);
+  border-radius: 20px 0px;
+}
+
+.todo-list-item h3{
+  font-size: 25px;
+  color: rgb(0, 230, 122);
+  font-weight: bold;
+  margin: 0px;
+}
+
+.todo-list-item p{
+  margin-top: 8px;
+  font-size: 14px;
+  color: rgb(179, 178, 178);
+
+}
+
+.icon{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.icon:hover{
+  color: red;
+
+}
+
+.edit-icon{
+  font-size: 27px;
+  cursor: pointer;
+  margin-bottom: 2px;
+  margin-right: 10px;
+}
+
+.edit-icon:hover{
+  color: rgb(255, 230, 0);
+
+}
+
+.check-icon{
+  font-size: 22px;
+  cursor: pointer;
+  color: rgb(0, 230, 122);
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.check-icon:hover{
+  color: rgb(4, 192, 104);
+}
+
+/* notification */
+.notification-completed {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: opacity 0.3s ease-out;
+}
+
+.notification-completed:hover {
+  opacity: 0.9;
+}
+
+.notification-edited {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #ffe6009a;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: opacity 0.3s ease-out;
+}
+
+.notification-edited:hover {
+  opacity: 0.9;
+}
+
+
+.notification-deleted {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000cb;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: opacity 0.3s ease-out;
+}
+
+.notification-deleted:hover {
+  opacity: 0.9;
+}
+
+/*
+--------------------------------
+*/
+
+/* default maintance message */
+.maintenance-overlay{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .todo-wrapper{
+    display: none;/* Hide the container content during maintenance */
+  }
+
+.maintenance-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white overlay */
+  text-align: center;
+  padding-top: 50vh; /* Center the message vertically */
+  z-index: 1000; /* Ensure the overlay appears on top of other content */
+}
+
+.maintenance-message {
+  font-size: 24px;
+  color: #333;
+}
+}

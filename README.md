@@ -1,8 +1,7 @@
-# React + Vite
+# React + Vite  Todo App.
 
-## under progress -> [![Netlify Status](https://api.netlify.com/api/v1/badges/c6d14e54-b9fc-4eae-aefa-e8ae0aef32f5/deploy-status)](https://app.netlify.com/sites/my-todo-react-tomsabu/deploys)
+# under progress
 
-#  Todo App.
 
 ## Getting Started
 

@@ -5,8 +5,7 @@ import { LuCheckCircle } from "react-icons/lu";
 import { FaEdit } from "react-icons/fa";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-
+import ParticleBg from './Components/ParticleBg'
 
 function App() {
   const [allTodos, setAllTodos] = useState([]);
@@ -190,6 +189,7 @@ function App() {
 
   return (
     <div className="App">
+       <ParticleBg/>
       <h1>My Todo's</h1>
 
       <div className="todo-wrapper">

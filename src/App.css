@@ -1,9 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
 *{
-  font-family: cursive;
+  font-family:'Poppins';
 }
 
 body{
-  background-image: url(./assets/wavey-fingerprint.svg);
+  background-image: url(https://images.alphacoders.com/132/1321760.jpeg);
   color: white;
   overflow: hidden;
 }
@@ -15,7 +17,7 @@ h1{
 
 .todo-wrapper{
   
-  background-color: #353434;
+  background-color:#8095a4;
   padding: 2%;
   width: fit-content;
   margin-left: auto;
@@ -62,15 +64,15 @@ input::placeholder {
 }
 
 .todo-input-item input:focus{
-  outline: 2px solid rgb(0, 230, 122);
+  outline: 2px solid #F3FF47;
 }
 
 
 
 
 .primary-btn{
-  background-color: rgb(0, 230, 122);
-  color: white;
+  background-color:#F3FF47;
+  color: rgb(6, 38, 74);
   border-radius: 5px;
   border: none;
   margin-top: 25px;
@@ -80,7 +82,7 @@ input::placeholder {
 }
 
 .primary-btn:hover{
-  background-color: rgb(4, 192, 104);
+  background-color:#F3FF47;
 }
 
 .btn-area{
@@ -89,9 +91,9 @@ input::placeholder {
 
 
 .secondaryBtn{
-  background-color: rgb(92, 92, 92);
-  color: white;
+  background-color: rgb(216, 216, 216);
   border-radius: 0px;
+  color:F3FF47;
   border: none;
   padding: 10px;
   width: fit-content;
@@ -100,7 +102,8 @@ input::placeholder {
 }
 
 .btn-area .active{
-  background-color: rgb(4, 192, 104);
+  color:F3FF47;
+  background-color:#F3FF47;
 }
 
 
@@ -114,7 +117,7 @@ input::placeholder {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #414040;
+  background-color:#354249;
   padding: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -126,7 +129,7 @@ input::placeholder {
 
 .todo-list-item h3{
   font-size: 25px;
-  color: rgb(0, 230, 122);
+  color:#F3FF47;
   font-weight: bold;
   margin: 0px;
 }
@@ -163,13 +166,13 @@ input::placeholder {
 .check-icon{
   font-size: 22px;
   cursor: pointer;
-  color: rgb(0, 230, 122);
+  color:#F3FF47;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
 .check-icon:hover{
-  color: rgb(4, 192, 104);
+  color:#F3FF47;
 }
 
 /* notification */
@@ -177,7 +180,7 @@ input::placeholder {
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: #4CAF50;
+  background-color:#F3FF47;
   color: #fff;
   padding: 15px;
   border-radius: 5px;

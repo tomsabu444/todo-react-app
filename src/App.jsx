@@ -27,12 +27,14 @@ function App() {
   // New state for currently edited to-do item
   const [editingTodo, setEditingTodo] = useState(null);
 
-
+  const generateUniqueId = () => {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  };
 
   const compareReminders = (a, b) => {
     if (!a.reminder && !b.reminder) return 0;
-    if (!a.reminder) return 1;
-    if (!b.reminder) return -1;
+    if (!a.reminder) return -1; // Move items without reminders to the end
+    if (!b.reminder) return 1; // Move items without reminders to the end
 
     const reminderA = new Date(a.reminder);
     const reminderB = new Date(b.reminder);
@@ -56,6 +58,7 @@ function App() {
     //
 
     let newToDoObj = {
+      id: generateUniqueId(), // Add a unique id to each todo item
       title: newTodoTitle,
       description: newDescription,
       reminder: newReminder ? newReminder.toString() : null, //  //
@@ -65,7 +68,8 @@ function App() {
     if (editingTodo !== null) {
       // If editingTodo is not null, it means we are editing an existing to-do
       // Replace the old to-do with the edited one
-      let updatedTodoArr = [...allTodos];
+      // let updatedTodoArr = [...allTodos];
+      let updatedTodoArr = allTodos.map(todo => (todo.id === editingTodo.id ? newToDoObj : todo));
       updatedTodoArr[editingTodo] = newToDoObj;
       setAllTodos(updatedTodoArr);
       setEditingTodo(null); // Reset editing state after editing
@@ -88,7 +92,8 @@ function App() {
 
   const handleEdit = (index) => {
     // Set the editingTodo state to the index of the to-do being edited
-    setEditingTodo(index);
+    // setEditingTodo(index);
+    setEditingTodo(allTodos[index]);
 
     // Retrieve the details of the to-do being edited
     const todoToEdit = allTodos[index];
@@ -127,9 +132,10 @@ function App() {
     setTimeout(() => setDeleteNotification(null), 3000); // Clear notification after 3 seconds
   };
 
-  const handleCompletedTodoDelete = index => {
+  const handleCompletedTodoDelete = (index) => {
     let reducedCompletedTodos = [...completedTodos];
     reducedCompletedTodos.splice(index, 1);
+
     // console.log (reducedCompletedTodos);
     localStorage.setItem(
       'completedTodos',
@@ -250,7 +256,7 @@ function App() {
         <div className="todo-list">
           {isCompletedScreen === false &&
             sortedTodos.map((item, index) => (
-              <div className="todo-list-item" key={index}>
+              <div className="todo-list-item" key={item.id}>
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
@@ -293,7 +299,7 @@ function App() {
 
           {isCompletedScreen === true &&
             completedTodos.map((item, index) => (
-              <div className="todo-list-item" key={index}>
+              <div className="todo-list-item" key={item.id}>
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>

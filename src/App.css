@@ -4,6 +4,11 @@
   font-family:'Poppins';
 }
 
+::selection{
+  background-color: #F3FF47;
+  color: #333;
+}
+
 body{
   /* background-image: url(https://images.alphacoders.com/132/1321760.jpeg); */
   color: white;

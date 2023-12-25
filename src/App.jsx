@@ -5,8 +5,7 @@ import { LuCheckCircle } from "react-icons/lu";
 import { FaEdit } from "react-icons/fa";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-
+import ParticleBg from './Components/ParticleBg'
 
 function App() {
   const [allTodos, setAllTodos] = useState([]);
@@ -189,6 +188,8 @@ function App() {
 
 
   return (
+    <>
+       <ParticleBg/>
     <div className="App">
       <h1>My Todo's</h1>
 
@@ -202,8 +203,8 @@ function App() {
               value={newTodoTitle}
               onChange={e => setNewTodoTitle(e.target.value)}
               placeholder="What's the title of your To Do?"
-
-            />
+              
+              />
           </div>
           <div className="todo-input-item">
             <label>Description:</label>
@@ -212,8 +213,8 @@ function App() {
               value={newDescription}
               onChange={e => setNewDescription(e.target.value)}
               placeholder="What's the description of your To Do?"
-
-            />
+              
+              />
           </div>
 
           <div className="todo-input-item">
@@ -227,7 +228,7 @@ function App() {
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
               placeholderText="Select a reminder date and time"
-            />
+              />
           </div>
 
           <div className="todo-input-item">
@@ -243,13 +244,13 @@ function App() {
           <button
             className={`secondaryBtn ${isCompletedScreen === false && 'active'}`}
             onClick={() => setIsCompletedScreen(false)}
-          >
+            >
             To Do
           </button>
           <button
             className={`secondaryBtn ${isCompletedScreen === true && 'active'}`}
             onClick={() => setIsCompletedScreen(true)}
-          >
+            >
             Completed
           </button>
         </div>
@@ -280,17 +281,17 @@ function App() {
                     title='Edit?'
                     className="edit-icon"
                     onClick={() => handleEdit(index)}
-                  />
+                    />
                   <MdDelete
                     title="Delete?"
                     className="icon"
                     onClick={() => handleToDoDelete(index)}
-                  />
+                    />
                   <LuCheckCircle
                     title="Completed?"
                     className=" check-icon"
                     onClick={() => handleComplete(index)}
-                  />
+                    />
 
                 </div>
               </div>
@@ -309,7 +310,7 @@ function App() {
                   <MdDelete
                     className="icon"
                     onClick={() => handleCompletedTodoDelete(index)}
-                  />
+                    />
                 </div>
               </div>
             ))}
@@ -345,6 +346,7 @@ function App() {
 
     </div>
 
+      </>
 
   );
 }

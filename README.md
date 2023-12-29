@@ -2,7 +2,7 @@
 <h1> React + Vite  Todo App
 </div>
 
-> **screenshot**
+>**screenshot**
 ><img src="./public/screenshot.png">
 
 <h3>Getting Started</h3>

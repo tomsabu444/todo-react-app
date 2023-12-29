@@ -3,7 +3,7 @@
 </div>
 
 > **screenshot**
-<img src="./public/screenshot.png">
+><img src="./public/screenshot.png">
 
 <h3>Getting Started</h3>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Todo_list from "./Components/Todo_list.jsx";
+import Todo_list from "./Components/Todo_list";
 import ParticleBg from "./Components/ParticleBg";
 
 function App() {

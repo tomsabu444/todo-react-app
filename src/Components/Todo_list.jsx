@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import '../App.css';
-import { MdDelete } from 'react-icons/md';
+import React, { useState, useEffect } from "react";
+import "../App.css";
+import { MdDelete } from "react-icons/md";
 import { LuCheckCircle } from "react-icons/lu";
 import { FaEdit } from "react-icons/fa";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
   const [allTodos, setAllTodos] = useState([]);
-  const [newTodoTitle, setNewTodoTitle] = useState('');
-  const [newDescription, setNewDescription] = useState('');
+  const [newTodoTitle, setNewTodoTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
   const [completedTodos, setCompletedTodos] = useState([]);
   const [isCompletedScreen, setIsCompletedScreen] = useState(false);
 
@@ -25,7 +25,7 @@ function App() {
   const [editingTodo, setEditingTodo] = useState(null);
 
   const generateUniqueId = () => {
-    return '_' + Math.random().toString(36).substr(2, 9);
+    return "_" + Math.random().toString(36).substr(2, 9);
   };
 
   const handleEdit = (index) => {
@@ -39,12 +39,12 @@ function App() {
 
   const handleAddNewToDo = () => {
     if (!newTodoTitle.trim()) {
-      alert('Please enter a title for your To Do');
+      alert("Please enter a title for your To Do");
       return;
     }
 
     if (!newReminder) {
-      alert('Please set a reminder for your To Do');
+      alert("Please set a reminder for your To Do");
       return;
     }
 
@@ -56,27 +56,30 @@ function App() {
     };
 
     if (editingTodo !== null) {
-      let updatedTodoArr = allTodos.map(todo => (todo.id === editingTodo.id ? newToDoObj : todo));
+      let updatedTodoArr = allTodos.map((todo) =>
+        todo.id === editingTodo.id ? newToDoObj : todo
+      );
       setAllTodos(updatedTodoArr);
       setEditingTodo(null);
 
       setEditNotification(`Task "${newTodoTitle}" edited successfully.`);
       setTimeout(() => setEditNotification(null), 3000);
-
     } else {
       let updatedTodoArr = [...allTodos, newToDoObj];
       setAllTodos(updatedTodoArr);
     }
 
-    localStorage.setItem('todolist', JSON.stringify(allTodos));
-    setNewDescription('');
-    setNewTodoTitle('');
+    localStorage.setItem("todolist", JSON.stringify(allTodos));
+    setNewDescription("");
+    setNewTodoTitle("");
     setNewReminder(null);
   };
 
   useEffect(() => {
-    let savedTodos = JSON.parse(localStorage.getItem('todolist'));
-    let savedCompletedToDos = JSON.parse(localStorage.getItem('completedTodos'));
+    let savedTodos = JSON.parse(localStorage.getItem("todolist"));
+    let savedCompletedToDos = JSON.parse(
+      localStorage.getItem("completedTodos")
+    );
 
     if (savedTodos) {
       setAllTodos(savedTodos);
@@ -90,10 +93,12 @@ function App() {
   const handleToDoDelete = (index) => {
     let reducedTodos = [...allTodos];
     reducedTodos.splice(index, 1);
-    localStorage.setItem('todolist', JSON.stringify(reducedTodos));
+    localStorage.setItem("todolist", JSON.stringify(reducedTodos));
     setAllTodos(reducedTodos);
 
-    setDeleteNotification(`Task "${allTodos[index].title}" deleted successfully.`);
+    setDeleteNotification(
+      `Task "${allTodos[index].title}" deleted successfully.`
+    );
     setTimeout(() => setDeleteNotification(null), 3000);
   };
 
@@ -101,7 +106,10 @@ function App() {
     let reducedCompletedTodos = [...completedTodos];
     reducedCompletedTodos.splice(index, 1);
 
-    localStorage.setItem('completedTodos', JSON.stringify(reducedCompletedTodos));
+    localStorage.setItem(
+      "completedTodos",
+      JSON.stringify(reducedCompletedTodos)
+    );
     setCompletedTodos(reducedCompletedTodos);
   };
 
@@ -114,7 +122,7 @@ function App() {
     var minutes = date.getMinutes();
     var ss = date.getSeconds();
     var finalDate =
-      dd + '-' + mm + '-' + yyyy + ' at ' + hh + ':' + minutes + ':' + ss;
+      dd + "-" + mm + "-" + yyyy + " at " + hh + ":" + minutes + ":" + ss;
 
     const confirmCompletion = window.confirm(
       `Are you sure you want to mark "${allTodos[index].title}" as completed?`
@@ -128,11 +136,16 @@ function App() {
 
       let updatedCompletedList = [...completedTodos, filteredTodo];
       setCompletedTodos(updatedCompletedList);
-      localStorage.setItem('completedTodos', JSON.stringify(updatedCompletedList));
+      localStorage.setItem(
+        "completedTodos",
+        JSON.stringify(updatedCompletedList)
+      );
 
       handleToDoDelete(index);
 
-      setCompletedNotification(`Task "${allTodos[index].title}" marked as completed.`);
+      setCompletedNotification(
+        `Task "${allTodos[index].title}" marked as completed.`
+      );
       setTimeout(() => setCompletedNotification(null), 3000);
     }
   };
@@ -183,19 +196,23 @@ function App() {
                 type="button"
                 onClick={handleAddNewToDo}
               >
-                {editingTodo !== null ? 'Edit' : 'Add'}
+                {editingTodo !== null ? "Edit" : "Add"}
               </button>
             </div>
           </div>
           <div className="btn-area">
             <button
-              className={`secondaryBtn ${isCompletedScreen === false && 'active'}`}
+              className={`secondaryBtn ${
+                isCompletedScreen === false && "active"
+              }`}
               onClick={() => setIsCompletedScreen(false)}
             >
               To Do
             </button>
             <button
-              className={`secondaryBtn ${isCompletedScreen === true && 'active'}`}
+              className={`secondaryBtn ${
+                isCompletedScreen === true && "active"
+              }`}
               onClick={() => setIsCompletedScreen(true)}
             >
               Completed
@@ -210,13 +227,13 @@ function App() {
                     <p>{item.description}</p>
                     {item.reminder && (
                       <p>
-                        <strong>Reminder:</strong>{' '}
-                        {new Date(item.reminder).toLocaleString('en-US', {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric',
-                          hour: 'numeric',
-                          minute: 'numeric',
+                        <strong>Reminder:</strong>{" "}
+                        {new Date(item.reminder).toLocaleString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                          hour: "numeric",
+                          minute: "numeric",
                           hour12: true,
                         })}
                       </p>
@@ -248,7 +265,10 @@ function App() {
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
-                    <p> <i>Completed on: {item.completedOn}</i></p>
+                    <p>
+                      {" "}
+                      <i>Completed on: {item.completedOn}</i>
+                    </p>
                   </div>
                   <div>
                     <MdDelete
@@ -262,26 +282,16 @@ function App() {
         </div>
 
         {completedNotification && (
-          <div className="notification-completed">
-            {completedNotification}
-          </div>
+          <div className="notification-completed">{completedNotification}</div>
         )}
 
         {editNotification && (
-          <div className="notification-edited">
-            {editNotification}
-          </div>
+          <div className="notification-edited">{editNotification}</div>
         )}
 
         {deleteNotification && (
-          <div className="notification-deleted">
-            {deleteNotification}
-          </div>
+          <div className="notification-deleted">{deleteNotification}</div>
         )}
-
-        <div className="maintenance-overlay">
-          <p className="maintenance-message">We are currently under maintenance. Please check back later.</p>
-        </div>
       </div>
     </>
   );

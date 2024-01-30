@@ -38,7 +38,7 @@ function ParticleBg()  {
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "push",
           },
           onHover: {
@@ -81,13 +81,13 @@ function ParticleBg()  {
           density: {
             enable: true,
           },
-          value: 200,
+          value: 250,
         },
         opacity: {
-          value: 0.5,
+          value: 2.5,
         },
         shape: {
-          type: "star",
+          type: "line",
         },
         size: {
           value: { min: 1, max: 5 },

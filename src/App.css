@@ -40,6 +40,7 @@ h1 {
 
 .todo-input {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid rgb(77, 77, 77);
@@ -237,6 +238,12 @@ input::placeholder {
   opacity: 0.9;
 }
 
+@media (max-width:1024px) {
+  .todo-input-item {
+    padding-top: 2%;
+  }
+}
+
 /*
 --------------------------------
 */
@@ -246,14 +253,14 @@ input::placeholder {
   display: none;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   body {
     font-size: 14px;
   }
 
   .todo-wrapper {
     display: none;
-    /* Hide the container content during maintenance */
+    /* Hide the container content during maintenance *
   }
 
   .maintenance-overlay {
@@ -264,16 +271,16 @@ input::placeholder {
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.9);
-    /* Semi-transparent white overlay */
+    /* Semi-transparent white overlay *
     text-align: center;
     padding-top: 50vh;
-    /* Center the message vertically */
+    /* Center the message vertically *
     z-index: 1000;
-    /* Ensure the overlay appears on top of other content */
+    /* Ensure the overlay appears on top of other content *
   }
 
   .maintenance-message {
     font-size: 24px;
     color: #333;
   }
-}
+} */

@@ -1,8 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);
+/* @import url(https://fonts.googleapis.com/css?family=Poppins); */
+
+
+@font-face {
+  font-family: 'Nothing_Font';
+  src: url("./font/nothing-font-5x7.ttf") format('truetype');
+}
 
 * {
-  font-family: 'Poppins';
+  font-family: 'Nothing_Font';
   box-sizing: border-box;
+  letter-spacing: 1px;
 }
 
 ::selection {
@@ -22,6 +29,7 @@ body {
 
 h1 {
   text-align: center;
+
 }
 
 
@@ -86,7 +94,7 @@ input::placeholder {
   color: rgb(6, 38, 74);
   border-radius: 5px;
   border: none;
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 10px;
   width: 60px;
   cursor: pointer;

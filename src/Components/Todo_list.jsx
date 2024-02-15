@@ -158,36 +158,48 @@ function App() {
         <div className="todo-wrapper">
           <div className="todo-input">
             <div className="todo-input-item">
-              <label>Title:*</label>
-              <input
-                type="text"
-                value={newTodoTitle}
-                onChange={(e) => setNewTodoTitle(e.target.value)}
-                placeholder="What's the title of your To Do?"
-              />
+              <label>
+                Title:*
+                <br />
+                <input
+                  name="title"
+                  type="text"
+                  value={newTodoTitle}
+                  onChange={(e) => setNewTodoTitle(e.target.value)}
+                  placeholder="What's the title of your To Do?"
+                />
+              </label>
             </div>
             <div className="todo-input-item">
-              <label>Description:</label>
-              <input
-                type="text"
-                value={newDescription}
-                onChange={(e) => setNewDescription(e.target.value)}
-                placeholder="What's the description of your To Do?"
-              />
+              <label>
+                Description:
+                <br />
+                <input
+                  name="description"
+                  type="text"
+                  value={newDescription}
+                  onChange={(e) => setNewDescription(e.target.value)}
+                  placeholder="What's the description of your To Do?"
+                />
+              </label>
             </div>
 
             <div className="todo-input-item">
-              <label>Reminder:*</label>
-              <DatePicker
-                selected={newReminder}
-                onChange={(date) => setNewReminder(date)}
-                showTimeSelect
-                timeFormat="h:mm a"
-                timeIntervals={15}
-                timeCaption="time"
-                dateFormat="MMMM d, yyyy h:mm aa"
-                placeholderText="Select a reminder date and time"
-              />
+              <label>
+                Reminder:*
+                <br />
+                <DatePicker
+                  name="reminder"
+                  selected={newReminder}
+                  onChange={(date) => setNewReminder(date)}
+                  showTimeSelect
+                  timeFormat="h:mm a"
+                  timeIntervals={15}
+                  timeCaption="time"
+                  dateFormat="MMMM d, yyyy h:mm aa"
+                  placeholderText="Select a reminder date and time"
+                />
+              </label>
             </div>
 
             <div className="todo-input-item">

@@ -1,7 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);
+/* @import url(https://fonts.googleapis.com/css?family=Poppins); */
+
+
+@font-face {
+  font-family: 'Nothing_Font';
+  src: url("./font/nothing-font-5x7.ttf") format('truetype');
+}
 
 * {
-  font-family: 'Poppins';
+  font-family: 'Nothing_Font';
+  box-sizing: border-box;
+  letter-spacing: 1px;
 }
 
 ::selection {
@@ -21,6 +29,7 @@ body {
 
 h1 {
   text-align: center;
+
 }
 
 
@@ -85,7 +94,7 @@ input::placeholder {
   color: rgb(6, 38, 74);
   border-radius: 5px;
   border: none;
-  margin-top: 25px;
+  margin-top: 10px;
   padding: 10px;
   width: 60px;
   cursor: pointer;
@@ -238,11 +247,32 @@ input::placeholder {
   opacity: 0.9;
 }
 
+
+/*  -------------------- Responsive -------------------- */
 @media (max-width:1024px) {
   .todo-input-item {
     padding-top: 2%;
   }
+
+  .btn-area {
+    text-align: center;
+  }
 }
+
+/* ---------------------------- */
+
+@media (max-width:320px) {
+  .todo-input-item {
+
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+
+  .primary-btn {
+    margin-top: 15px;
+  }
+}
+
 
 /*
 --------------------------------
